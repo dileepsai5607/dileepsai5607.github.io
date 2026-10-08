@@ -595,7 +595,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div class="faq rv">
         <details><summary>What kind of opportunities are you looking for?</summary><p class="ans">I'm currently a Cybersecurity Analyst intern at XSignOn. I'm also open to research collaborations and security engineering roles, especially post-quantum migration, intrusion detection, and IoT or vehicular security.</p></details>
         <details><summary>What is your M.Tech thesis about?</summary><p class="ans">A behavioral trust layer for post-quantum, DAG-based vehicular sensor networks. Signatures prove who sent data; the trust layer decides whether to believe it, and every trust decision is signed with ML-DSA-65 into an audit ledger.</p></details>
-        <details><summary>Can I see the code behind the papers?</summary><p class="ans">Yes. The trust layer, the IoT framework and the IDS study each have a public repository on GitHub, linked from the research cards and the repositories section.</p></details>
+        <details><summary>Where can I see your code?</summary><p class="ans">My projects are public on GitHub, listed in the Repositories section, including the trust layer, the post-quantum IoT edge prototype, the IDS study and the bird classifier.</p></details>
         <details><summary>Are your results from real systems or simulations?</summary><p class="ans">Mostly simulations and public datasets (KDD Cup 99, NSL-KDD, CICIDS2017, CUB-200-2011). Each paper says which numbers are measured and which are modeled, and lists real-world testing as future work.</p></details>
       </div>
     </div>
@@ -651,7 +651,7 @@ const PAPERS = [
     problem: 'Hacked, faulty or dishonest vehicles still hold valid keys, so post-quantum authentication alone lets false data through.',
     method: 'Trust from consistency and history signals, a four-tier policy with hysteresis, and trust-weighted aggregation. Compared against rebuilt Beta Reputation and RRS systems, tuned on separate seeds and tested on five new ones across five attacks (false data, faulty sensors, on-off, collusion, bad-mouthing) with 1,000 sensors and 100 gateways.',
     limits: 'Simulation only. Adding the peer-report and reliability terms lowered detection, and that negative result is reported.',
-    stack: ['ML-DSA-65', 'DAG ledger', 'trust management', 'VANET', 'Python', 'NumPy'], repo: 'PQtrust', pages: 16 },
+    stack: ['ML-DSA-65', 'DAG ledger', 'trust management', 'VANET', 'Python', 'NumPy'], repo: null, pages: 16 },
   { id: 'zt-iot', tags: 'pqc chain iot ml', status: ['sub', 'Submitted · IEEE IC4 2027'], meta: 'Medi-Caps University',
     title: 'A Zero-Trust Edge Intelligence Framework for Post-Quantum IoT Failure Prediction and Merkle-Anchored Auditing',
     authors: '<b>L Dileep Sai</b> (corresponding), K Lahari, K Sagar, R Shiny, P Nagasravanthi',
@@ -660,7 +660,7 @@ const PAPERS = [
     problem: 'Cloud-centric predictive maintenance adds latency and a single point of failure, and most designs ignore quantum-capable adversaries.',
     method: 'Prediction-gated encryption, replay-resistant admission (Lamport signatures, nonce cache, freshness window) and Merkle-root anchoring, benchmarked against RSA-2048 and ECDH P-256, with an ablation for each component.',
     limits: 'A node compromised before commitment can fabricate consistent data, and a missed prediction leaves telemetry unencrypted. Both are stated in the security analysis.',
-    stack: ['ring-LWE', 'NTT', 'AES-256-GCM', 'Merkle tree', 'Lamport signatures', 'zero-trust'], repo: 'Quantum-Resistant-IoT-Failure-Prediction', pages: 7 },
+    stack: ['ring-LWE', 'NTT', 'AES-256-GCM', 'Merkle tree', 'Lamport signatures', 'zero-trust'], repo: null, pages: 7 },
   { id: 'ids', tags: 'ids ml', status: ['rev', 'Under supervisor review'], meta: '2026',
     title: 'Classical String Matching Meets Soft Computing: A Controlled Empirical Study of Hybrid Intrusion Detection',
     authors: '<b>L Dileep Sai</b> (corresponding), K Sagar, P Naga Venkata Sai Shankar, M Sitharam',
@@ -669,7 +669,7 @@ const PAPERS = [
     problem: 'Matchers are usually chosen by theoretical complexity, and the attacks exact matching misses are rarely measured.',
     method: 'Label-free pseudo-packets, signatures learned from training data only, unknown attack types held out of all training, ten seeds with Wilcoxon tests, and padding-attack and family hold-out robustness tests on KDD Cup 99, NSL-KDD and CICIDS2017.',
     limits: 'Entirely new attack families such as Bot and Infiltration are still mostly missed. Signatures describe flow properties, not payload bytes.',
-    stack: ['Aho–Corasick', 'Bloom filter', 'scikit-learn', 'KDD Cup 99', 'CICIDS2017', 'Python', 'C'], repo: 'Intrusion-detection-system-using-string-matching-algorithms-', pages: 6 },
+    stack: ['Aho–Corasick', 'Bloom filter', 'scikit-learn', 'KDD Cup 99', 'CICIDS2017', 'Python', 'C'], repo: null, pages: 6 },
   { id: 'bird', tags: 'ml', status: ['sub', 'Submitted · iConCISE 2027'], meta: 'IEEE · Asansol Engineering College',
     title: 'A CNN-Based Bird Species Identification System for Biodiversity Monitoring Using Transfer Learning',
     authors: '<b>L Dileep Sai</b>, P Nagasravanthi, K Sagar',
@@ -681,12 +681,11 @@ const PAPERS = [
     stack: ['EfficientNet-B0', 'transfer learning', 'Grad-CAM', 'TensorFlow', 'Keras'], repo: null, pages: 9 }
 ];
 const REPOS = [
-  ['PQtrust', 'Behavioral trust layer, trust-weighted aggregation and ML-DSA-signed audit ledger for DAG-based vehicular networks.', 'Python', ''],
-  ['Quantum-Resistant-IoT-Failure-Prediction', 'Edge failure prediction with prediction-gated ring-LWE encryption and Merkle-anchored auditing.', 'Python', ''],
-  ['Intrusion-detection-system-using-string-matching-algorithms-', 'KMP, Rabin–Karp, Aho–Corasick and Bloom-filter matchers with an ML fallback stage.', 'Python', ''],
-  ['A-Secure-and-Privacy-Preserving-Blockchain-Based-Payment-DApp-', 'Blockchain payment DApp using IPFS and zero-knowledge proofs for privacy.', 'TypeScript', 'ts'],
-  ['applied-cryptography', 'Applied cryptography implementations and experiments.', 'Python', ''],
-  ['SECURITY-IN-CLOUD-COMPUTING-AND-IOT', 'Coursework project for CYS-506, Security in Cloud Computing and IoT (Group 5).', 'Course project', 'na']
+  ['PQTrust-DAG', 'Gateway trust layer for DAG-based vehicular sensor networks: scores sensors, sorts them into trust tiers and writes ML-DSA-signed trust records to a ledger.', 'Python', ''],
+  ['zero-trust-pq-iot-edge', 'Edge prototype that predicts failing IoT devices, encrypts only their telemetry with ring-LWE + AES-256-GCM, and anchors every event in a Merkle ledger.', 'Python', ''],
+  ['IDS-String-Matching', 'KMP, Rabin–Karp, Aho–Corasick and Bloom-filter signature matching for intrusion detection, with an ML second stage and a C benchmark.', 'Python · C', ''],
+  ['bird-species-identification', 'Transfer-learning classifier for 200 bird species (CUB-200-2011) comparing VGG16, ResNet50 and EfficientNet-B0, with Grad-CAM.', 'Python', ''],
+  ['A-Secure-and-Privacy-Preserving-Blockchain-Based-Payment-DApp-', 'Suraksha Pay: a decentralized payment app using ZK-SNARKs, Polygon zkEVM and IPFS (Pinata) for private, tamper-resistant records.', 'TypeScript', 'ts']
 ];
 const CERTS = [
   { img: 'ceh', seal: 'CEH', iss: 'EC-Council · ANSI accredited', name: 'Certified Ethical Hacker', date: 'Issued 28 January 2023', id: 'ECC0619724835', idLabel: 'Certification no.' },
@@ -743,7 +742,7 @@ function paperModal(p) {
     <div class="mets">${p.mets.map(m => `<div class="m"><div class="v">${esc(m[0])}</div><div class="l">${esc(m[1])}</div></div>`).join('')}</div>
     <dl><div><dt>Problem</dt><dd>${esc(p.problem)}</dd></div><div><dt>Method</dt><dd>${esc(p.method)}</dd></div><div><dt>Limits</dt><dd>${esc(p.limits)}</dd></div></dl>
     <div class="tags">${p.stack.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
-    <div class="acts"><button class="btn primary" data-read="${p.id}">Read the paper (${p.pages} pages)</button>${p.repo ? `<a class="btn" href="${GH + p.repo}" target="_blank" rel="noopener">View code on GitHub →</a>` : ''}<button class="btn" data-open="contact">Ask about this paper</button></div>`);
+    <div class="acts"><button class="btn primary" data-read="${p.id}">Read the paper (${p.pages} pages)</button><button class="btn" data-open="contact">Ask about this paper</button></div>`);
 }
 function readerModal(p) {
   const pages = Array.from({ length: p.pages }, (_, i) => `<figure class="pg"><img src="assets/papers/${p.id}/p-${i + 1}.jpg" alt="Page ${i + 1} of ${esc(p.title)}" loading="${i < 2 ? 'eager' : 'lazy'}" width="850" height="1100"><figcaption>page ${i + 1} / ${p.pages}</figcaption></figure>`).join('');
